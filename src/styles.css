@@ -209,6 +209,43 @@ p {
 }
 
 /* ============================================================
+   1b. STICKY MOBILE CTA
+   ============================================================ */
+
+.sticky-mobile-cta {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 17px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 18px rgba(20, 40, 25, 0.18);
+  transform: translateY(110%);
+  transition: transform 0.28s ease;
+}
+
+.sticky-mobile-cta.visible {
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .sticky-mobile-cta {
+    display: flex;
+  }
+}
+
+/* ============================================================
    2. STICKY HEADER
    ============================================================ */
 

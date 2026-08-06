@@ -11,6 +11,7 @@ import { ServiceAreaSection } from "./components/ServiceAreaSection";
 import { FAQSection } from "./components/FAQSection";
 import { FinalEstimateForm } from "./components/FinalEstimateForm";
 import { ClosingCta } from "./components/ClosingCta";
+import { StickyMobileCta } from "./components/StickyMobileCta";
 import { SiteFooter } from "./components/SiteFooter";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
 
   return (
     <>
+      <StickyMobileCta />
       <SiteHeader />
       <main>
         <HeroSection />
