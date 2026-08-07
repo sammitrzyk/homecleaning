@@ -92,6 +92,10 @@ export const siteConfig = {
     ga4Id: "", // e.g. "G-XXXXXXXXXX"
     googleAdsId: "", // e.g. "AW-XXXXXXXXX"
     metaPixelId: "",
+    // Google Ads conversion "send_to" label for the mid-page short-form
+    // submission (the "mini form" lead event), e.g. "AW-XXXXXXXXX/AbC-D_efG-h123".
+    // Leave "" until the conversion action is created in Google Ads.
+    miniLeadAdsSendTo: "",
   },
 
   /* ---------- REVIEWS ---------- */

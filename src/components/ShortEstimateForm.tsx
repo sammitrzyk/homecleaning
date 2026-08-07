@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "../config";
-import { trackEvent } from "../analytics";
+import { trackEvent, fireMiniLeadTracking } from "../analytics";
 import {
   AREA_OPTIONS,
   PROJECT_TYPE_OPTIONS,
@@ -49,6 +49,7 @@ export function ShortEstimateForm() {
   const onContinue = () => {
     if (!validateStep1()) return;
     trackEvent("short_form_step_1_completed");
+    fireMiniLeadTracking(siteConfig.trackingIds.miniLeadAdsSendTo);
     setStep(2);
   };
 
@@ -152,7 +153,7 @@ export function ShortEstimateForm() {
                     )}
                   </div>
                   <button type="button" className="btn estimate-cta" onClick={onContinue}>
-                    Continue to Project Details
+                    Continue
                   </button>
                 </>
               )}

@@ -10,6 +10,7 @@
 declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -17,6 +18,26 @@ export function trackEvent(eventName: string, extra?: Record<string, unknown>) {
   if (!eventName) return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: eventName, ...extra });
+}
+
+/**
+ * Fires the "lead_mini_submit" conversion for the mid-page short
+ * estimate form ("mini form"): dataLayer push, GA4 event via gtag
+ * (if loaded), and a Google Ads conversion using the send_to label
+ * from siteConfig.trackingIds.miniLeadAdsSendTo. Each step is
+ * independently guarded so this is a no-op until gtag/GTM and the
+ * conversion label are actually configured.
+ */
+export function fireMiniLeadTracking(sendTo: string) {
+  trackEvent("lead_mini_submit");
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "lead_mini_submit");
+
+    if (sendTo) {
+      window.gtag("event", "conversion", { send_to: sendTo });
+    }
+  }
 }
 
 /** Global click delegation for any element with data-event. */
