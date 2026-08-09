@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { siteConfig } from "../config";
 import { trackEvent } from "../analytics";
-import { PROJECT_TYPE_OPTIONS, TIMELINE_OPTIONS, submitLead, redirectToThankYou } from "../forms";
+import { PROJECT_TYPE_OPTIONS, TIMELINE_OPTIONS, submitLead } from "../forms";
 
 export function FinalEstimateForm() {
   const [values, setValues] = useState<Record<string, string>>({});
@@ -35,7 +35,7 @@ export function FinalEstimateForm() {
       await submitLead({ form: "final-estimate", ...values }, null);
       trackEvent("hydroseeding_final_form_submit");
       setDone(true);
-      redirectToThankYou();
+      window.location.assign("/thank-you.html");
     } catch {
       setSubmitError("Something went wrong sending your request. Please call us instead.");
     } finally {
