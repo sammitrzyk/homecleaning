@@ -1,20 +1,24 @@
 import { siteConfig } from "./config";
 
 /**
- * Submits lead data to the configured endpoint.
- * If no endpoint is configured yet ([FORM_ENDPOINT_OR_CRM_WEBHOOK]),
- * resolves locally so the success state can be exercised in development.
- * No credentials belong in this file or anywhere client-side.
+ * Submits lead data.
+ *
+ * If a custom formEndpoint is configured in src/config.ts, posts there
+ * (e.g. a CRM webhook). Otherwise posts to Netlify Forms at "/" — the
+ * `data.form` value (e.g. "short-estimate") is used as the form-name,
+ * which must match one of the hidden static forms declared in
+ * index.html so Netlify's build-time parser has registered the field
+ * set in advance. No credentials belong in this file or anywhere
+ * client-side.
  */
 export async function submitLead(data: Record<string, string>, file?: File | null): Promise<void> {
-  if (!siteConfig.formEndpoint) {
-    console.info("[forms] No formEndpoint configured — lead not posted:", data);
-    return;
-  }
   const body = new FormData();
+  body.append("form-name", data.form ?? "estimate-form");
   Object.entries(data).forEach(([k, v]) => body.append(k, v));
   if (file) body.append("photo", file);
-  const res = await fetch(siteConfig.formEndpoint, { method: "POST", body });
+
+  const endpoint = siteConfig.formEndpoint || "/";
+  const res = await fetch(endpoint, { method: "POST", body });
   if (!res.ok) throw new Error(`Form submission failed (${res.status})`);
 }
 

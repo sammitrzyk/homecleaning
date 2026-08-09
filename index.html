@@ -121,6 +121,39 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!--
+      Hidden static forms for Netlify's build-time form parser.
+      Netlify scans the deployed HTML (not JS-rendered markup) for
+      forms with the netlify attribute, so these mirror the real
+      React forms field-for-field. The actual visible/interactive
+      forms live in src/components/ShortEstimateForm.tsx and
+      FinalEstimateForm.tsx; their submits POST to "/" with a
+      matching form-name, which Netlify then routes to these
+      definitions. Do not remove — required for Netlify Forms to
+      detect and store submissions.
+    -->
+    <form name="short-estimate" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="short-estimate" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="text" name="zip" />
+      <input type="text" name="area" />
+      <textarea name="details"></textarea>
+    </form>
+
+    <form name="final-estimate" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="final-estimate" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="text" name="projectType" />
+      <input type="text" name="zip" />
+      <input type="text" name="timeline" />
+      <textarea name="details"></textarea>
+    </form>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,13 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "../config";
 import { trackEvent, fireMiniLeadTracking } from "../analytics";
-import {
-  AREA_OPTIONS,
-  PROJECT_TYPE_OPTIONS,
-  TIMELINE_OPTIONS,
-  submitLead,
-  redirectToThankYou,
-} from "../forms";
+import { AREA_OPTIONS, submitLead, redirectToThankYou } from "../forms";
 
 type Step = 1 | 2 | "done";
 
@@ -19,7 +13,6 @@ export function ShortEstimateForm() {
   const [submitError, setSubmitError] = useState("");
   const startedRef = useRef(false);
   const step2ViewedRef = useRef(false);
-  const photoRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (step === 2 && !step2ViewedRef.current) {
@@ -62,10 +55,7 @@ export function ShortEstimateForm() {
     setSubmitting(true);
     setSubmitError("");
     try {
-      await submitLead(
-        { form: "short-estimate", ...values },
-        photoRef.current?.files?.[0] ?? null
-      );
+      await submitLead({ form: "short-estimate", ...values }, null);
       trackEvent("short_form_submitted");
       setStep("done");
       redirectToThankYou();
@@ -163,61 +153,17 @@ export function ShortEstimateForm() {
                   <p className="form-step-indicator">Step 2 of 2</p>
                   <h3>Tell Us About the Property</h3>
                   <div className="field">
-                    <label htmlFor="sf-address">Property Address</label>
-                    <input
-                      id="sf-address"
-                      type="text"
-                      autoComplete="street-address"
-                      value={values.address ?? ""}
-                      onChange={(e) => set("address", e.target.value)}
-                    />
-                  </div>
-                  <div className="field-row">
-                    <div className="field">
-                      <label htmlFor="sf-area">Approximate Area</label>
-                      <select
-                        id="sf-area"
-                        value={values.area ?? ""}
-                        onChange={(e) => set("area", e.target.value)}
-                      >
-                        <option value="">Select…</option>
-                        {AREA_OPTIONS.map((o) => (
-                          <option key={o}>{o}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="field">
-                      <label htmlFor="sf-type">Project Type</label>
-                      <select
-                        id="sf-type"
-                        value={values.projectType ?? ""}
-                        onChange={(e) => set("projectType", e.target.value)}
-                      >
-                        <option value="">Select…</option>
-                        {PROJECT_TYPE_OPTIONS.map((o) => (
-                          <option key={o}>{o}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="field">
-                    <label htmlFor="sf-timeline">Desired Timeline</label>
+                    <label htmlFor="sf-area">Approximate Area</label>
                     <select
-                      id="sf-timeline"
-                      value={values.timeline ?? ""}
-                      onChange={(e) => set("timeline", e.target.value)}
+                      id="sf-area"
+                      value={values.area ?? ""}
+                      onChange={(e) => set("area", e.target.value)}
                     >
                       <option value="">Select…</option>
-                      {TIMELINE_OPTIONS.map((o) => (
+                      {AREA_OPTIONS.map((o) => (
                         <option key={o}>{o}</option>
                       ))}
                     </select>
-                  </div>
-                  <div className="field">
-                    <label htmlFor="sf-photo">
-                      Photo Upload <span className="optional-tag">(optional)</span>
-                    </label>
-                    <input id="sf-photo" type="file" accept="image/*" ref={photoRef} />
                   </div>
                   <div className="field">
                     <label htmlFor="sf-details">
@@ -235,7 +181,7 @@ export function ShortEstimateForm() {
                     </p>
                   )}
                   <button type="submit" className="btn estimate-cta" disabled={submitting}>
-                    {submitting ? "Sending…" : "Submit My Project Details"}
+                    {submitting ? "Sending…" : "Get My Free Quote"}
                   </button>
                 </>
               )}

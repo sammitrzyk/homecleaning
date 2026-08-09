@@ -5,6 +5,7 @@ import { HeroSection } from "./components/HeroSection";
 import { ReviewsSection } from "./components/ReviewsSection";
 import { BeforeAfterSection } from "./components/BeforeAfterSection";
 import { ShortEstimateForm } from "./components/ShortEstimateForm";
+import { TruckBanner } from "./components/TruckBanner";
 import { ProjectTypesSection } from "./components/ProjectTypesSection";
 import { WhyChooseUsSection } from "./components/WhyChooseUsSection";
 import { ServiceAreaSection } from "./components/ServiceAreaSection";
@@ -29,6 +30,7 @@ export default function App() {
         <ReviewsSection />
         <BeforeAfterSection />
         <ShortEstimateForm />
+        <TruckBanner />
         <ProjectTypesSection />
         <WhyChooseUsSection />
         <ServiceAreaSection />

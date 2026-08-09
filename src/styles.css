@@ -1346,11 +1346,47 @@ p {
 }
 
 /* ============================================================
+   7b. TRUCK BANNER
+   ============================================================ */
+
+.truck-banner {
+  width: 100%;
+  height: 320px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.truck-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.truck-banner .dev-placeholder {
+  min-height: 100%;
+}
+
+@media (max-width: 640px) {
+  .truck-banner {
+    height: 240px;
+  }
+}
+
+/* ============================================================
    8. PROJECT TYPES
    ============================================================ */
 
 .project-types {
   background: var(--off-white);
+  padding-top: 48px;
+}
+
+@media (max-width: 640px) {
+  .project-types {
+    padding-top: 34px;
+  }
 }
 
 .project-types .section-lede {

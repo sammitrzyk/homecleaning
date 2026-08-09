@@ -2,9 +2,9 @@ import { siteConfig } from "../config";
 import { DevPlaceholder } from "./DevPlaceholder";
 
 const STATEMENTS = [
+  "Family owned company treating your property like its our very own.",
   "Seed mix selected for your property’s soil and sunlight.",
   "Professional hydroseeding equipment for consistent application.",
-  "Local team serving Chinook and surrounding communities.",
 ];
 
 export function WhyChooseUsSection() {
