@@ -215,28 +215,29 @@ p {
 .sticky-mobile-cta {
   display: none;
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: 50%;
+  bottom: 18px;
   z-index: 60;
   align-items: center;
   justify-content: center;
-  height: 60px;
-  padding-bottom: env(safe-area-inset-bottom);
+  height: 52px;
+  padding: 0 32px;
+  margin-bottom: env(safe-area-inset-bottom);
   background: var(--green);
   color: var(--white);
   font-weight: 800;
-  font-size: 17px;
+  font-size: 16px;
   text-decoration: none;
   text-align: center;
-  border-radius: 16px 16px 0 0;
-  box-shadow: 0 -4px 18px rgba(20, 40, 25, 0.18);
-  transform: translateY(110%);
+  white-space: nowrap;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(20, 40, 25, 0.28);
+  transform: translate(-50%, 130%);
   transition: transform 0.28s ease;
 }
 
 .sticky-mobile-cta.visible {
-  transform: translateY(0);
+  transform: translate(-50%, 0);
 }
 
 @media (max-width: 860px) {
