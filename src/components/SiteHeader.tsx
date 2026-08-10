@@ -4,7 +4,7 @@ import { siteConfig } from "../config";
 const NAV_LINKS = [
   { label: "Reviews", href: "#reviews" },
   { label: "Results", href: "#before-after" },
-  { label: "Project Types", href: "#project-types" },
+  { label: "Services", href: "#project-types" },
   { label: "Service Area", href: "#service-area" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -33,8 +33,8 @@ export function SiteHeader() {
             <img
               src={siteConfig.logoPath}
               alt={siteConfig.businessName}
-              width={489}
-              height={153}
+              width={768}
+              height={240}
             />
           ) : (
             <strong>{siteConfig.businessName}</strong>
@@ -53,7 +53,7 @@ export function SiteHeader() {
           href={siteConfig.phoneHref}
           id="call-button-header"
           className="header-call"
-          data-event="hydroseeding_call_click"
+          data-event="cleaning_call_click"
         >
           Call {siteConfig.phoneDisplay}
         </a>

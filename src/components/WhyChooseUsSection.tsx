@@ -1,10 +1,19 @@
 import { siteConfig } from "../config";
 import { DevPlaceholder } from "./DevPlaceholder";
 
-const STATEMENTS = [
-  "Family owned company treating your property like its our very own.",
-  "Seed mix selected for your property’s soil and sunlight.",
-  "Professional hydroseeding equipment for consistent application.",
+const DIFFERENTIATORS = [
+  {
+    title: "Licensed & Insured",
+    text: "Protection and peace of mind while we’re in your home.",
+  },
+  {
+    title: "Consistent, Thorough Cleaning",
+    text: "A detailed checklist helps make sure nothing gets overlooked.",
+  },
+  {
+    title: "We Bring Everything",
+    text: "Our team arrives with the supplies and equipment needed to get the job done.",
+  },
 ];
 
 export function WhyChooseUsSection() {
@@ -12,14 +21,14 @@ export function WhyChooseUsSection() {
     <section className="why-us section" id="why-choose-us">
       <div className="container">
         <div className="why-intro">
-          <span className="eyebrow">WHY CHOOSE CHINOOK</span>
-          <h2>What Makes Chinook Different</h2>
+          <span className="eyebrow">WHY HOMEOWNERS CHOOSE US</span>
+          <h2>Cleaning You Can Feel Comfortable With</h2>
         </div>
         <div className="why-photo-banner">
           {siteConfig.crewImagePath ? (
             <img
               src={siteConfig.crewImagePath}
-              alt="Chinook Hydroseeding team"
+              alt="Carpet Guys cleaning team"
               loading="lazy"
             />
           ) : (
@@ -28,12 +37,15 @@ export function WhyChooseUsSection() {
           )}
         </div>
         <ul className="why-checklist">
-          {STATEMENTS.map((s) => (
-            <li key={s}>
+          {DIFFERENTIATORS.map((d) => (
+            <li key={d.title}>
               <span className="why-check" aria-hidden="true">
                 ✓
               </span>
-              {s}
+              <div className="why-checklist-copy">
+                <strong>{d.title}</strong>
+                <p>{d.text}</p>
+              </div>
             </li>
           ))}
         </ul>

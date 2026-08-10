@@ -8,7 +8,7 @@ export function HeroSection() {
         {siteConfig.heroImagePath ? (
           <img
             src={siteConfig.heroImagePath}
-            alt="Chinook Hydroseeding crew applying hydroseed to a local property"
+            alt="Bright, freshly cleaned kitchen with granite countertops"
             fetchPriority="high"
           />
         ) : (
@@ -21,32 +21,31 @@ export function HeroSection() {
       <div className="container">
         <div className="hero-content">
           <div className="hero-heading-block">
-            <p className="hero-eyebrow">HYDROSEEDING • NEW LAWNS • EROSION CONTROL</p>
+            <p className="hero-eyebrow">HOUSE CLEANING • RECURRING &amp; DEEP CLEANS</p>
             <h1>
-              Hydroseeding in Chinook, WA
-              <br /> For Bare, Patchy &amp; Newly Graded Lawns
+              House Cleaning in Mechanicsburg, PA
+              <br /> Come Home to a Spotless House
             </h1>
           </div>
-          <p className="hero-sub">
-            Grow a fuller, more even lawn with professional hydroseeding in one efficient
-            application.
-          </p>
+          <p className="hero-sub">Enjoy a spotless home without lifting a finger.</p>
           <div className="hero-cta-row">
             <a
               href={siteConfig.phoneHref}
               id="call-button-hero"
               className="btn btn-primary hero-call-btn"
-              data-event="hydroseeding_call_click"
+              data-event="cleaning_call_click"
             >
-              <span className="hero-call-btn-main">Call Now for a Free Estimate</span>
+              <span className="hero-call-btn-main">Call Now for a Free Quote</span>
               <span className="hero-call-btn-phone">{siteConfig.phoneDisplay}</span>
             </a>
           </div>
 
           <ul className="hero-badges">
-            <li>★★★★★ {siteConfig.rating} Google Rating</li>
+            <li>
+              <span className="badge-stars">★★★★★</span> {siteConfig.rating} Rating •{" "}
+              {siteConfig.reviewCount} Reviews
+            </li>
             <li>Licensed &amp; Insured</li>
-            <li>{siteConfig.socialFollowerCount} Followers</li>
           </ul>
         </div>
       </div>

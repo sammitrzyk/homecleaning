@@ -70,11 +70,11 @@ export function ShortEstimateForm() {
     <section className="quote-section" id="quote-form">
       <div className="container">
         <div className="quote-intro">
-          <span className="eyebrow quote-eyebrow">FREE ESTIMATE</span>
-          <h2 className="quote-headline">Request Your Free Hydroseeding Estimate</h2>
+          <span className="eyebrow quote-eyebrow">FREE QUOTE</span>
+          <h2 className="quote-headline">Request a Free Cleaning Quote</h2>
           <p className="quote-subhead">
-            Takes under 30 seconds. Tell us about your property and we&rsquo;ll follow up with
-            pricing and next steps.
+            Takes under 30 seconds. Tell us about your home and we&rsquo;ll follow up with a
+            custom estimate.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export function ShortEstimateForm() {
             <div className="form-success" role="status" aria-live="polite">
               <h3>Thanks — your request was received.</h3>
               <p>
-                {siteConfig.businessName} will follow up about your property and estimate.
+                {siteConfig.businessName} will follow up about your home and your cleaning quote.
               </p>
             </div>
           ) : (
@@ -151,9 +151,9 @@ export function ShortEstimateForm() {
               {step === 2 && (
                 <>
                   <p className="form-step-indicator">Step 2 of 2</p>
-                  <h3>Tell Us About the Property</h3>
+                  <h3>Tell Us About Your Home</h3>
                   <div className="field">
-                    <label htmlFor="sf-area">Approximate Area</label>
+                    <label htmlFor="sf-area">Bedrooms</label>
                     <select
                       id="sf-area"
                       value={values.area ?? ""}
@@ -188,7 +188,7 @@ export function ShortEstimateForm() {
 
               <p className="estimate-trustline">
                 <span className="trust-gold">
-                  {siteConfig.rating} ★★★★★
+                  {siteConfig.reviewCount} <span className="badge-stars">★★★★★</span> {siteConfig.rating}
                 </span>{" "}
                 Google Rating {siteConfig.licensedInsured && <>• Licensed &amp; Insured</>}
               </p>

@@ -7,7 +7,7 @@ export function SiteFooter() {
         <div className="footer-grid">
           <div className="footer-brand">
             {siteConfig.logoPath ? (
-              <img src={siteConfig.logoPath} alt={siteConfig.businessName} width={489} height={153} />
+              <img src={siteConfig.logoPath} alt={siteConfig.businessName} width={768} height={240} />
             ) : (
               <p>
                 <strong>{siteConfig.businessName}</strong>
@@ -19,8 +19,9 @@ export function SiteFooter() {
           <div className="footer-col">
             <h3>Services</h3>
             <ul>
-              <li>Hydroseeding</li>
-              <li>Erosion control</li>
+              <li>Recurring cleaning</li>
+              <li>Deep cleaning</li>
+              <li>Move-in / move-out cleaning</li>
             </ul>
           </div>
 
@@ -31,7 +32,7 @@ export function SiteFooter() {
                 <a
                   href={siteConfig.phoneHref}
                   className="footer-phone"
-                  data-event="hydroseeding_call_click"
+                  data-event="cleaning_call_click"
                 >
                   {siteConfig.phoneDisplay}
                 </a>

@@ -2,7 +2,7 @@
  * Lightweight conversion-event helper.
  *
  * Every tracked element carries a data-event attribute (e.g.
- * data-event="hydroseeding_quote_click"). Events are pushed to
+ * data-event="cleaning_quote_click"). Events are pushed to
  * window.dataLayer so GTM can forward them to GA4, Google Ads,
  * and Meta Pixel. No credentials live in client code.
  */
@@ -50,7 +50,7 @@ export function initClickTracking() {
   });
 }
 
-/** Fires hydroseeding_scroll_50 / hydroseeding_scroll_75 once each. */
+/** Fires cleaning_scroll_50 / cleaning_scroll_75 once each. */
 export function initScrollTracking() {
   const fired = new Set<number>();
   const onScroll = () => {
@@ -61,7 +61,7 @@ export function initScrollTracking() {
     for (const mark of [50, 75]) {
       if (pct >= mark && !fired.has(mark)) {
         fired.add(mark);
-        trackEvent(`hydroseeding_scroll_${mark}`);
+        trackEvent(`cleaning_scroll_${mark}`);
       }
     }
     if (fired.size === 2) window.removeEventListener("scroll", onScroll);

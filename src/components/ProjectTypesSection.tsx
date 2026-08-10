@@ -1,34 +1,19 @@
-import { siteConfig } from "../config";
-import { DevPlaceholder } from "./DevPlaceholder";
-
 const PROJECT_TYPES = [
   {
-    title: "New Construction Lawns",
-    text: "For freshly graded residential properties.",
-    image: siteConfig.projectTypeImages.newConstruction,
-    configKey: "projectTypeImages.newConstruction",
-    alt: "New construction property being prepped for hydroseeding",
+    title: "Recurring Cleaning",
+    text: "Weekly, biweekly, or monthly visits so your home stays consistently clean.",
   },
   {
-    title: "Bare Ground",
-    text: "Establish grass across exposed soil.",
-    image: siteConfig.projectTypeImages.bareGround,
-    configKey: "projectTypeImages.bareGround",
-    alt: "Bare soil ready for hydroseeding",
+    title: "Deep Cleaning",
+    text: "A top-to-bottom clean for baseboards, grout, appliances, and everything in between.",
   },
   {
-    title: "Lawn Renovations",
-    text: "Restore thin, patchy, or heavily damaged areas.",
-    image: siteConfig.projectTypeImages.renovations,
-    configKey: "projectTypeImages.renovations",
-    alt: "Property with renovated, established lawn areas",
+    title: "Move-In / Move-Out Cleaning",
+    text: "A thorough clean before keys change hands, for tenants, owners, and landlords.",
   },
   {
-    title: "Erosion Control",
-    text: "Help stabilize exposed and erosion-prone soil.",
-    image: siteConfig.projectTypeImages.erosionControl,
-    configKey: "projectTypeImages.erosionControl",
-    alt: "Hydroseed mulch applied for erosion control",
+    title: "One-Time Cleaning",
+    text: "Need the house ready for guests or just a fresh start? Book a single visit, no commitment.",
   },
 ];
 
@@ -36,22 +21,15 @@ export function ProjectTypesSection() {
   return (
     <section className="project-types section" id="project-types">
       <div className="container">
-        <span className="eyebrow">PROJECT TYPES</span>
-        <h2>Hydroseeding for Every Type of Property</h2>
+        <span className="eyebrow">OUR SERVICES</span>
+        <h2>Cleaning Services for Every Home</h2>
         <p className="section-lede">
-          From newly graded lots to damaged lawns and erosion-prone slopes, we&rsquo;ll recommend
-          the right approach for your property.
+          From a one-time deep clean to a standing weekly visit, we&rsquo;ll recommend the right
+          service for your home.
         </p>
         <ul className="pt-grid">
           {PROJECT_TYPES.map((pt) => (
             <li className="pt-card" key={pt.title}>
-              <div className="pt-card-photo">
-                {pt.image ? (
-                  <img src={pt.image} alt={pt.alt} loading="lazy" />
-                ) : (
-                  <DevPlaceholder label={`${pt.title.toUpperCase()} PHOTO`} configKey={pt.configKey} />
-                )}
-              </div>
               <div className="pt-card-body">
                 <h3>{pt.title}</h3>
                 <p>{pt.text}</p>

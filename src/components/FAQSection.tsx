@@ -3,36 +3,36 @@ import { trackEvent } from "../analytics";
 
 const FAQS = [
   {
-    q: "How much does hydroseeding cost?",
-    a: "Pricing depends on area size, site access, soil condition, preparation needs, seed selection, and project type. Request an estimate so the property can be reviewed accurately.",
+    q: "How much does home cleaning cost?",
+    a: "Pricing depends on home size, number of bedrooms and bathrooms, cleaning type, and how often you'd like service. Request a quote so we can give you an accurate number.",
   },
   {
-    q: "How long does hydroseed take to grow?",
-    a: "Germination timing varies by seed type, weather, soil conditions, temperature, and watering. Customers receive care instructions based on the project and season.",
+    q: "Do I need to be home during the cleaning?",
+    a: "No. Many customers give us entry instructions and go about their day. If you'd rather be home, that's fine too — whatever's easiest for you.",
   },
   {
-    q: "How often does new hydroseed need to be watered?",
-    a: "New hydroseed normally requires consistent moisture during establishment. The recommended watering schedule depends on the project, weather, and season.",
+    q: "Do you bring your own cleaning supplies?",
+    a: "Yes, our team brings all supplies and equipment. If you'd like us to use a specific product on certain surfaces, just let us know when you book.",
   },
   {
-    q: "Can hydroseeding be applied over an existing lawn?",
-    a: "Hydroseeding may be suitable for some thin or damaged lawns, but successful establishment depends on preparation and proper seed-to-soil contact. The property should be reviewed first.",
+    q: "How long does a cleaning take?",
+    a: "It depends on the size of the home and the type of cleaning. A recurring cleaning is usually quicker than a first-time deep clean. We'll give you a time estimate when we quote your home.",
   },
   {
-    q: "Do you hydroseed newly graded properties?",
-    a: "Yes. Newly graded residential and commercial properties are common hydroseeding applications when the site and soil preparation are suitable.",
+    q: "Do you offer recurring cleaning?",
+    a: "Yes. Weekly, biweekly, and monthly plans are available, and the schedule can be adjusted anytime.",
   },
   {
-    q: "Do you provide erosion-control hydroseeding?",
-    a: "Yes, for qualifying slopes, disturbed areas, construction sites, and erosion-prone properties.",
+    q: "Can I customize my cleaning?",
+    a: "Yes. Tell us which rooms or areas to focus on and anything to skip, and we'll build the visit around what matters most to you.",
   },
   {
-    q: "What happens after I request an estimate?",
-    a: "The team reviews the information, follows up with questions if necessary, and explains the recommended scope, pricing, scheduling, and next steps.",
+    q: "Do you clean move-in or move-out properties?",
+    a: "Yes, for tenants, owners, and landlords who need the home cleaned before or after a move.",
   },
   {
     q: "Are you licensed and insured?",
-    a: "Yes. Chinook Hydroseeding is licensed and insured.",
+    a: "Yes. Carpet Guys is licensed and insured.",
   },
 ];
 
@@ -42,14 +42,14 @@ export function FAQSection() {
   const toggle = (i: number) => {
     const next = open === i ? null : i;
     setOpen(next);
-    if (next !== null) trackEvent("hydroseeding_faq_opened", { question: FAQS[i].q });
+    if (next !== null) trackEvent("cleaning_faq_opened", { question: FAQS[i].q });
   };
 
   return (
     <section className="faq section" id="faq">
       <div className="container">
         <span className="eyebrow">COMMON QUESTIONS</span>
-        <h2>Hydroseeding Questions</h2>
+        <h2>Cleaning Questions</h2>
         <div className="faq-list">
           {FAQS.map((item, i) => (
             <div className="faq-item" key={item.q}>

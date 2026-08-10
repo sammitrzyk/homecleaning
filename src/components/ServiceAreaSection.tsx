@@ -41,7 +41,7 @@ export function ServiceAreaSection() {
         <div className="sa-grid">
           <div>
             <span className="eyebrow">SERVICE AREA</span>
-            <h2>Hydroseeding in Chinook, WA and Surrounding Communities</h2>
+            <h2>House Cleaning in Mechanicsburg, PA and Surrounding Communities</h2>
           </div>
 
           <div className="sa-map" ref={mapRef}>

@@ -29,45 +29,39 @@ export function redirectToThankYou() {
 }
 
 export const AREA_OPTIONS = [
-  "Under 2,500 sq. ft.",
-  "2,500–5,000 sq. ft.",
-  "5,000–10,000 sq. ft.",
-  "10,000+ sq. ft.",
+  "Studio / 1 bedroom",
+  "2 bedrooms",
+  "3 bedrooms",
+  "4 bedrooms",
+  "5+ bedrooms",
   "Not sure",
 ];
 
 export const PROJECT_TYPE_OPTIONS = [
-  "New lawn",
-  "Bare or patchy lawn",
-  "New construction",
-  "Erosion control",
-  "Commercial property",
+  "Recurring cleaning",
+  "Deep cleaning",
+  "Move-in cleaning",
+  "Move-out cleaning",
+  "One-time cleaning",
   "Other",
 ];
 
 export const TIMELINE_OPTIONS = [
   "As soon as possible",
-  "Within 30 days",
-  "Within 1–3 months",
-  "Planning ahead",
+  "Within a week",
+  "Within a month",
+  "Just getting prices",
   "Not sure",
 ];
 
 export const PROPERTY_TYPE_OPTIONS = [
-  "Residential",
-  "Commercial",
-  "New construction",
-  "Managed property",
+  "House",
+  "Apartment / condo",
+  "Vacation rental",
+  "Office / commercial",
   "Other",
 ];
 
-export const SITE_CONDITION_OPTIONS = [
-  "Bare soil",
-  "Patchy lawn",
-  "Newly graded",
-  "Sloped or erosion-prone",
-  "Recently excavated",
-  "Not sure",
-];
+export const BATHROOM_OPTIONS = ["1", "1.5", "2", "2.5", "3+", "Not sure"];
 
 export const CONTACT_METHOD_OPTIONS = ["Call", "Text", "Email"];

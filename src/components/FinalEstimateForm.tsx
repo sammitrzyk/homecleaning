@@ -14,7 +14,7 @@ export function FinalEstimateForm() {
   const set = (name: string, value: string) => {
     if (!startedRef.current) {
       startedRef.current = true;
-      trackEvent("hydroseeding_final_form_start");
+      trackEvent("cleaning_final_form_start");
     }
     setValues((v) => ({ ...v, [name]: value }));
     setErrors((e) => ({ ...e, [name]: "" }));
@@ -33,7 +33,7 @@ export function FinalEstimateForm() {
     setSubmitError("");
     try {
       await submitLead({ form: "final-estimate", ...values }, null);
-      trackEvent("hydroseeding_final_form_submit");
+      trackEvent("cleaning_final_form_submit");
       setDone(true);
       window.location.assign("/thank-you.html");
     } catch {
@@ -50,15 +50,15 @@ export function FinalEstimateForm() {
           {done ? (
             <div className="form-success" role="status" aria-live="polite">
               <h3>Thank You — Your Quote Request Was Received</h3>
-              <p>Our team will review your property and follow up with pricing and next steps.</p>
-              <a href={siteConfig.phoneHref} data-event="hydroseeding_call_click">
+              <p>Our team will review your home and follow up with a custom estimate and next steps.</p>
+              <a href={siteConfig.phoneHref} data-event="cleaning_call_click">
                 {siteConfig.phoneDisplay}
               </a>
             </div>
           ) : (
             <>
               <div className="final-card-head">
-                <h2>Get Your Free Hydroseeding Quote</h2>
+                <h2>Get Your Free Cleaning Quote</h2>
                 <p>Fill out the form below for a fast, no-obligation quote.</p>
               </div>
 
@@ -102,7 +102,7 @@ export function FinalEstimateForm() {
                 </div>
 
                 <div className="field">
-                  <label htmlFor="ff-project-type">Project Type</label>
+                  <label htmlFor="ff-project-type">Cleaning Type</label>
                   <select
                     id="ff-project-type"
                     value={values.projectType ?? ""}
@@ -155,7 +155,7 @@ export function FinalEstimateForm() {
                   </label>
                   <textarea
                     id="ff-details"
-                    placeholder="Anything specific we should know? Examples: bare patches, slope, drainage, etc."
+                    placeholder="Anything specific we should know? Examples: pets, gate codes, areas to focus on, etc."
                     value={values.details ?? ""}
                     onChange={(e) => set("details", e.target.value)}
                   />
@@ -176,12 +176,12 @@ export function FinalEstimateForm() {
                 </button>
 
                 <p className="final-microcopy">
-                  We&rsquo;ll follow up with pricing and next steps. Your information is kept
-                  private.
+                  We&rsquo;ll follow up with your custom estimate and next steps. Your information
+                  is kept private.
                 </p>
                 <p className="final-call-line">
                   Or call now:{" "}
-                  <a href={siteConfig.phoneHref} data-event="hydroseeding_call_click">
+                  <a href={siteConfig.phoneHref} data-event="cleaning_call_click">
                     {siteConfig.phoneDisplay}
                   </a>
                 </p>

@@ -1,23 +1,18 @@
 import { useRef, useState } from "react";
 import { siteConfig } from "../config";
 import { trackEvent } from "../analytics";
-
-// Real Google review screenshots, shown in this exact order.
-const REVIEW_IMAGES = [
-  { src: "/review2.jpg", alt: "Google review from Michael Gardner" },
-  { src: "/review4.jpg", alt: "Google review from jasonkc82" },
-  { src: "/review3.jpg", alt: "Google review from Tony Grant" },
-  { src: "/review1.jpg", alt: "Google review from Marty Raphael" },
-  { src: "/review5.jpg", alt: "Google review from Chris Dierick" },
-];
+import { DevPlaceholder } from "./DevPlaceholder";
 
 export function ReviewsSection() {
   const [index, setIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
+  const reviewImages = siteConfig.reviewImages;
+  const hasReviews = reviewImages.length > 0;
 
   const go = (next: number) => {
-    setIndex((next + REVIEW_IMAGES.length) % REVIEW_IMAGES.length);
-    trackEvent("hydroseeding_review_navigation");
+    if (!hasReviews) return;
+    setIndex((next + reviewImages.length) % reviewImages.length);
+    trackEvent("cleaning_review_navigation");
   };
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -30,7 +25,7 @@ export function ReviewsSection() {
     touchStartX.current = null;
   };
 
-  const review = REVIEW_IMAGES[index];
+  const review = hasReviews ? reviewImages[index] : null;
 
   return (
     <section className="reviews section" id="reviews">
@@ -38,13 +33,11 @@ export function ReviewsSection() {
         <h2>Hear What Local Customers Are Saying</h2>
 
         <div className="review-summary-pill">
-          <span className="g-mark" aria-hidden="true">
-            G
-          </span>
-          <span>{siteConfig.rating} Rating</span>
           <span className="stars" aria-hidden="true">
             ★★★★★
           </span>
+          <span>{siteConfig.rating} Rating</span>
+          <span aria-hidden="true">•</span>
           <span className="count">{siteConfig.reviewCount} Reviews</span>
         </div>
 
@@ -61,7 +54,12 @@ export function ReviewsSection() {
           }}
         >
           <div className="review-card review-card-image" aria-live="polite">
-            <img src={review.src} alt={review.alt} loading="lazy" />
+            {review ? (
+              <img src={review.src} alt={review.alt} loading="lazy" />
+            ) : (
+              // [REVIEW_IMAGES] not supplied — labeled development placeholder
+              <DevPlaceholder label="GOOGLE REVIEW SCREENSHOTS" configKey="reviewImages" />
+            )}
           </div>
 
           <div className="review-controls">
@@ -74,13 +72,13 @@ export function ReviewsSection() {
               ←
             </button>
             <div className="review-dots" role="tablist" aria-label="Select review">
-              {REVIEW_IMAGES.map((r, i) => (
+              {reviewImages.map((r, i) => (
                 <button
                   key={r.src}
                   type="button"
                   role="tab"
                   aria-current={i === index}
-                  aria-label={`Review ${i + 1} of ${REVIEW_IMAGES.length}`}
+                  aria-label={`Review ${i + 1} of ${reviewImages.length}`}
                   onClick={() => go(i)}
                 />
               ))}

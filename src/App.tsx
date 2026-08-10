@@ -3,9 +3,10 @@ import { initClickTracking, initScrollTracking } from "./analytics";
 import { SiteHeader } from "./components/SiteHeader";
 import { HeroSection } from "./components/HeroSection";
 import { ReviewsSection } from "./components/ReviewsSection";
+import { AwardSection } from "./components/AwardSection";
 import { BeforeAfterSection } from "./components/BeforeAfterSection";
 import { ShortEstimateForm } from "./components/ShortEstimateForm";
-import { TruckBanner } from "./components/TruckBanner";
+import { GuaranteeSection } from "./components/GuaranteeSection";
 import { ProjectTypesSection } from "./components/ProjectTypesSection";
 import { WhyChooseUsSection } from "./components/WhyChooseUsSection";
 import { ServiceAreaSection } from "./components/ServiceAreaSection";
@@ -28,9 +29,10 @@ export default function App() {
       <main>
         <HeroSection />
         <ReviewsSection />
+        <AwardSection />
         <BeforeAfterSection />
         <ShortEstimateForm />
-        <TruckBanner />
+        <GuaranteeSection />
         <ProjectTypesSection />
         <WhyChooseUsSection />
         <ServiceAreaSection />

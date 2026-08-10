@@ -49,7 +49,7 @@ export function StickyMobileCta() {
       href="#quote-form"
       id="sticky-quote-button"
       className={`sticky-mobile-cta${visible ? " visible" : ""}`}
-      data-event="hydroseeding_quote_click"
+      data-event="cleaning_quote_click"
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
     >

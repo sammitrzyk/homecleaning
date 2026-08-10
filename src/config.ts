@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * CENTRAL SITE CONFIGURATION — Chinook Hydroseeding
+ * CENTRAL SITE CONFIGURATION — Carpet Guys
  * ============================================================
  * All business information, asset paths, and integration
  * endpoints live here. Do not hard-code these values inside
@@ -22,57 +22,45 @@ export interface GoogleReview {
 }
 
 export const siteConfig = {
-  businessName: "Chinook Hydroseeding",
+  businessName: "Carpet Guys",
 
-  phoneDisplay: "(360) 888-7301",
-  phoneHref: "tel:+13608887301",
+  phoneDisplay: "(717) 701-2797",
+  phoneHref: "tel:+17177012797",
 
-  primaryLocation: "Chinook, WA",
-  serviceAreaLabel: "Chinook, WA and surrounding communities",
+  primaryLocation: "Mechanicsburg, PA",
+  serviceAreaLabel: "Mechanicsburg, PA and surrounding communities",
 
-  rating: "4.9",
-  reviewCount: "18+",
+  rating: "5.0",
+  reviewCount: "285+",
   licensedInsured: true,
-  socialFollowerCount: "40k+",
 
   // Seasonal message — toggle off by setting seasonalMessageEnabled to false.
-  seasonalMessage: "Now booking fall hydroseeding projects.",
+  seasonalMessage: "Now booking fall move-out cleanings.",
   seasonalMessageEnabled: true,
 
   /* ---------- ASSETS ---------- */
-  // Real logo supplied (public/logo.jpg). Includes readable business text.
-  logoPath: "/logo.jpg",
+  // Real Carpet Guys logo.
+  logoPath: "/logo.jpeg",
 
-  // Technician actively spraying hydroseed mulch.
-  heroImagePath: "/hero-spraying.jpg",
+  // Bright, freshly cleaned kitchen.
+  heroImagePath: "/homecleaninghero.jpg",
 
-  // Ground-level before/after — same property, bare dirt vs. established lawn.
-  beforeImagePath: "/ba-before.jpg",
-  afterImagePath: "/ba-after.jpg",
+  // Before/after — single combined image, cluttered/dirty vs. freshly cleaned.
+  beforeAfterImagePath: "/befafter.jpg",
 
-  // Full crew team photo.
-  crewImagePath: "/team.jpg",
+  // 2023 Best of Harrisburg award photo.
+  awardImagePath: "/cutoff2.png",
 
-  // Truck / equipment credibility photo (shown beside the quote form).
-  optionalProjectImage1: "/truck.jpg",
-
-  // Project Types card photos — real photos only, left "" until supplied.
-  projectTypeImages: {
-    newConstruction: "/pt-new-construction.jpg",
-    bareGround: "/ba-before.jpg",
-    renovations: "/pt-renovation.jpg",
-    erosionControl: "/drone-before.jpg",
-    sloped: "/pt-sloped.jpg",
-    commercial: "",
-  },
+  // Full cleaning crew team photo.
+  crewImagePath: "/carb.jpg",
 
   /* ---------- SERVICE AREA ---------- */
   // Do not invent cities. Add confirmed towns only.
-  serviceAreas: ["Chinook", "Surrounding communities"],
+  serviceAreas: ["Mechanicsburg", "Surrounding communities"],
 
-  // Chinook, WA town center. Set to null to show the map placeholder instead.
-  mapLatitude: 46.2715 as number | null,
-  mapLongitude: -123.9466 as number | null,
+  // Mechanicsburg, PA town center. Set to null to show the map placeholder instead.
+  mapLatitude: 40.2131 as number | null,
+  mapLongitude: -77.0072 as number | null,
 
   /* ---------- INTEGRATIONS ---------- */
   // [FORM_ENDPOINT_OR_CRM_WEBHOOK] — leave "" until a real endpoint exists.
@@ -102,6 +90,16 @@ export const siteConfig = {
   // REAL Google reviews only. Leave empty until actual review content is
   // supplied — the carousel shows a restrained placeholder message when empty.
   googleReviews: [] as GoogleReview[],
+
+  // REAL Google review screenshots, shown in this exact order.
+  reviewImages: [
+    { src: "/meg.jpeg", alt: "Google review from Meg Humes" },
+    { src: "/paige.jpeg", alt: "Google review from Paige Fletcher" },
+    { src: "/hunter.jpeg", alt: "Google review from Hunter Rooney" },
+    { src: "/lois.jpeg", alt: "Google review from Lois Tait" },
+    { src: "/devon.jpeg", alt: "Google review from Devon Manto" },
+    { src: "/george.jpeg", alt: "Google review from George Ramos" },
+  ] as { src: string; alt: string }[],
 };
 
 export type SiteConfig = typeof siteConfig;
